@@ -110,6 +110,7 @@ class codinghae():
         elif TYPE == 'inputint':
             code = code.replace('받아정수','')
             index,num = int(code.split('에')[0]),int(input())
+            self.data[index] = num
         elif TYPE == 'inputfloat':
             code = code.replace('받아소수','')
             index,num = int(code.split('에')[0]),float(input())
