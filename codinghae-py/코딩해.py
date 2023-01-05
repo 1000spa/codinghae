@@ -37,6 +37,8 @@ class codinghae():
             return 'definefloat'
         elif '넣어문자' in code and '에' in code:
             return 'definestr'
+        elif '넣어변수' in code and '에' in code:
+            return 'definevar'
         elif '더해' in code and '하고' in code and '에' in code:
             return 'plus'
         elif '빼' in code and '하고' in code and '에' in code:
@@ -73,6 +75,10 @@ class codinghae():
             code = code.replace('넣어문자','')
             index,str = int(code.split('에')[0]),code.split('에')[1]
             self.data[index] = str
+        elif TYPE == 'definevar':
+            code = code.replace('넣어변수','')
+            index,var = int(code.split('에')[0]),code.split('에')[1]
+            self.data[index] = self.data[int(var)]
         elif TYPE == 'plus':
             code = code.replace('더해','')
             code = code.replace('에','')
@@ -110,7 +116,6 @@ class codinghae():
         elif TYPE == 'inputint':
             code = code.replace('받아정수','')
             index,num = int(code.split('에')[0]),int(input())
-            self.data[index] = num
         elif TYPE == 'inputfloat':
             code = code.replace('받아소수','')
             index,num = int(code.split('에')[0]),float(input())
